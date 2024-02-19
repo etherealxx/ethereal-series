@@ -14,7 +14,7 @@ body {
     min-height: 100vh;
     font-family: var(--font);
     background: radial-gradient(ellipse at bottom, var(--bgColor) 0%, var(--bgColor2) 100%);
-    /* background-image: url('https://bit.ly/3nFVqJh'); */
+    background-image: url('https://images.unsplash.com/photo-1617722694278-84453e1719a8');
     opacity: 0;
     animation: 1s ease-out var(--delay) 1 transitionAnimation; /* duration/timing-function/delay/iterations/name */
     animation-fill-mode: forwards;
@@ -84,25 +84,26 @@ body {
 
 #hashtag {
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     color: var(--accentColor);
     font-size: 1rem;
     display: block;
     font-family: var(--font);
     width: 100%;
     text-align: center;
+    word-wrap: break-word;
+    
 
     /*  animation   */
     overflow: hidden;
-    background: linear-gradient(90deg, var(--bgColor), var(--accentColor), var(--bgColor));
+    background: linear-gradient(90deg, var(--bgColor), var(--accentColor) , var(--bgColor));
     background-repeat: no-repeat;
-    background-size: 80%;
-    animation: animate 3s linear var(--delay) infinite;
+    background-size: 95%;
+    animation: animate 10s linear var(--delay) infinite;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
-
 
 /*-------------------------animations-----------------------*/
 @keyframes transitionAnimation {
@@ -117,12 +118,18 @@ body {
 }
 
 @keyframes animate {
-    0% {
-      background-position: -500%;
-    }
-    100% {
-      background-position: 500%;
-    }
+	0% {
+	  background-position: -1800%; /* Start position */
+	}
+	20% {
+	  background-position: 50%; /* Fully visible */
+	}
+	80% {
+	  background-position: 50%; /* Fully visible */
+	}
+	100% {
+	  background-position: 1800%; /* End position */
+	}
 }
 
 @keyframes animStar {
@@ -231,12 +238,13 @@ body {
     }
 }
 
-.popup-close:active {
-    background-color: var(--accentColor);
-    color: var(--bgColor);
+@media handheld, only screen and (max-width: 800px) {
+    #hashtag {
+        max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+    }
 }
-
-
 /*-----------------------parallax-----------------------*/
 /* credits: https://www.youtube.com/watch?v=aywzn9cf-_U */
 #stars1 {
